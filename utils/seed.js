@@ -1,32 +1,54 @@
 const connection = require('../config/connection');
-const User = require('../models/User');
-const { getRandomName } = require('./data');
+const { User, Thought } = require('../models');
+const { usernames, emails, thoughts } = require('./data');
 
-// Start the seeding runtime timer
-console.time('seeding');
 
-// Creates a connection to mongodb
+const user = [];
+const userThought = [];
+insertUsers();
+insertThought();
+
+
+function insertUsers() {
+  for (let i = 0; i < usernames.length; i++) {
+    const userObj = {
+      username: usernames[i],
+      email: emails[i]
+    }
+    user.push(userObj)
+  }
+};
+
+function insertThought() {
+  for (let i = 0; i < usernames.length; i++) {
+    const thoughtObj = {
+      thoughtName: thoughts[i],
+      username: usernames[i],
+    }
+    userThought.push(thoughtObj)
+  }
+};
+
+connection.on('error', (err) => err);
+
 connection.once('open', async () => {
-  // Delete the entries in the collection
+  console.log('connected');
+  console.log(userThought)
+
+
   await User.deleteMany({});
 
-  // Empty arrays for randomly generated users
-  const users = [];
 
-  for (let i = 0; i < 10; i++) {
-    const name = getRandomName();
-    const newUser = {
-      first: name.split(' ')[0],
-      last: name.split(' ')[1],
-      age: Math.floor(Math.random() * 99 + 1),
-    };
-    users.push(newUser);
-  }
+  await Thought.deleteMany({});
 
-  // Wait for the users to be inserted into the database
-  await User.collection.insertMany(users);
+  await User.insertMany(user);
 
-  console.table(users);
-  console.timeEnd('seeding complete 🌱');
+  await Thought.insertMany(userThought);
+
+  console.table(user);
+  console.table(userThought);
+  console.info('Seeding complete!');
   process.exit(0);
+
+
 });
