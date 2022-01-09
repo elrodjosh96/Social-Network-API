@@ -54,12 +54,12 @@ module.exports = {
             { $addToset: { friends: req.params.friendId } },
             { new: true }
         )
-        .then((user) => res.json(user))
-        .catch((err) => res.status(500).json(err));
+            .then((user) => res.json(user))
+            .catch((err) => res.status(500).json(err));
     },
     // Delets Friend
     deleteFriend(req, res) {
-        User.findOneAndDelete({ _id: req.params.userId }, { $pull: { friends: req.params.friendId } }, { new: true} )
+        User.findOneAndDelete({ _id: req.params.userId }, { $pull: { friends: req.params.friendId } }, { new: true })
             .then((user) =>
                 !user
                     ? res.status(404).json({ message: 'No user with that ID' })
