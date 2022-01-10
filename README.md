@@ -1,6 +1,67 @@
 # Social-Network-API
 
-pseudo code from office hours
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
+[![Watch the video](https://youtu.be/qYf2GPBMagI)](https://youtu.be/qYf2GPBMagI)
+
+## Table of Contents
+
+* [Description](#description)
+* [Installation](#installation)
+* [Acceptance Criteria](#acceptance_criteria)
+* [Usage](#usage)
+* [Contribution](#contribution)
+* [Test](#test)
+* [License](#license)
+* [Questions](#questions)
+
+
+
+## Description
+
+I have created a backend Social Network API app where you can sign up and create a username and use your email. You can see your posts, or thoughts and see other users' reactions to your thoughts. You can add/update/delete info for users, on thoughts, reactions and friends.
+
+## Acceptance Criteria
+
+```md
+AS A social media startup
+I WANT an API for my social network that uses a NoSQL database
+SO THAT my website can handle large amounts of unstructured data
+```
+
+```md
+GIVEN a social network API
+WHEN I enter the command to invoke the application
+THEN my server is started and the Mongoose models are synced to the MongoDB database
+WHEN I open API GET routes in Insomnia for users and thoughts
+THEN the data for each of these routes is displayed in a formatted JSON
+WHEN I test API POST, PUT, and DELETE routes in Insomnia
+THEN I am able to successfully create, update, and delete users and thoughts in my database
+WHEN I test API POST and DELETE routes in Insomnia
+THEN I am able to successfully create and delete reactions to thoughts and add and remove friends to a user’s friend list
+```
+
+## Installation
+
+## Usage
+
+## Contribution
+
+## Test 
+
+## License
+This app is using Apache License 2.0
+## Questions
+Email: 
+elrodjosh96@gmail.com
+Github Username:
+elrodjosh96
+
+
+
+
+
+<!-- pseudo code from office hours
 
 <!-- // Basic File Structure
   // install dependencies
@@ -69,4 +130,4 @@ pseudo code from office hours
   // user-controller
     // one method per http method
   // thoughts-controller
-    // one method per http method -->
+    // one method per http method --> -->
